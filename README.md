@@ -11,18 +11,29 @@ All the requirements are met in the file solidity_assesment.sol file.
 ```
  mapping (address=>uint) public balances;
 ```
-3) mint and burn function are also created to perform transations as per the give condition. mint and burn functions implement by modifying the varibles declared in above steps. mint function: - increments the value of total supply and balance in an account. burn function: - burns or decrementes the value in a particularaccount
+3) mint function is also created to perform transations as per the given condition. mint function implement by modifying the varibles declared in above steps. mint function: - increments the value of total supply and balance in an account. 
 ```
     function mint(address _address,uint _value)public{
         totalSupply += _value;
         balances[_address] += _value;
     }
+```
 
-    function burn (address _address,uint _value)public {
+4) burn function is also created to perform transations as per the given condition ,burn function implement by modifying the varibles declared in above steps. burn function: - burns or decrementes the value in a particularaccount
+```
+ function burn (address _address,uint _value)public {
         if (balances[_address]>=_value) {
             
             totalSupply -= _value;
             balances[_address] -= _value;
         }
     }
+```
+5) Conditionals are also included in the burn function to ensure that the sender's balance is greater than or equal to the amount to be burned.
+```
+if (balances[_address]>=_value) {
+            
+            totalSupply -= _value;
+            balances[_address] -= _value;
+        }
 ```
